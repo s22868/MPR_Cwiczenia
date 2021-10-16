@@ -8,6 +8,7 @@ public class KomputerApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(KomputerApplication.class, args);
+		System.out.println("test");
 	}
 
 }
