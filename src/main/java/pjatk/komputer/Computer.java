@@ -1,9 +1,16 @@
 package pjatk.komputer;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
 public class Computer {
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
+    @OneToMany(
+            cascade = CascadeType.ALL
+    )
     private List<Component> componentsList;
     private String name;
     private double commision;
@@ -17,10 +24,11 @@ public class Computer {
         this.commision = commision;
     }
 
-    public int getId(){
-        return this.id;
+    public Integer getId() {
+        return id;
     }
-    public void setId(int id){
+
+    public void setId(Integer id) {
         this.id = id;
     }
 
