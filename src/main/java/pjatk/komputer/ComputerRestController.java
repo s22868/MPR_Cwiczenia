@@ -33,6 +33,10 @@ public class ComputerRestController {
     }
     @GetMapping("/findbyid/{id}")
     public ResponseEntity<Computer> getSpecificComputer(@PathVariable("id") Integer id){
-        return ResponseEntity.ok(computerService.getSpecificComputer(id));
+	    try{
+            return ResponseEntity.ok(computerService.getSpecificComputer(id));
+        }catch (Exception e){
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
     }
 }

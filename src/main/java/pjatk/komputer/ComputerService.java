@@ -1,5 +1,6 @@
 package pjatk.komputer;
 
+import net.bytebuddy.implementation.bytecode.Throw;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -44,11 +45,11 @@ public class ComputerService {
     public List<Computer> getAllComputers(){
         return computerRepo.findAll();
     }
-    public Computer getSpecificComputer(Integer id){
+    public Computer getSpecificComputer(Integer id) throws Exception {
         if(computerRepo.findById(id).isPresent()){
             return computerRepo.findById(id).get();
         }else{
-            return null;
+            throw new Exception();
         }
     }
 }
